@@ -1,561 +1,332 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T9N3Z5XESQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-T9N3Z5XESQ');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShiftServe - Find Your Next Gig Today</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShiftServe - Join the Revolution</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rich-black': '#001219',
+                        'dark-cyan': '#005f73',
+                        'viridian-green': '#0a9396',
+                        'middle-blue-green': '#94d2bd',
+                        'vanilla': '#e9d8a6',
+                        'gamboge': '#ee9b00',
+                        'alloy-orange': '#ca6702',
+                        'rust': '#bb3e03',
+                        'rufous': '#ae2012',
+                        'auburn': '#9b2226'
+                    }
+                }
+            }
+        }
+    </script>
+  <style>
+        body {
             box-sizing: border-box;
         }
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes slideIn {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(238, 155, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(238, 155, 0, 0.6); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        .glow-button {
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #001219 0%, #001219 30%, #005f73 60%, #0a9396 80%, #005f73 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(0, 18, 25, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(0, 95, 115, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(10, 147, 150, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 18, 25, 0.3) 0%, transparent 50%);
+        }
     </style>
-</head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm border-b">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <div class="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">S</span>
-                        </div>
-                        <span class="ml-2 text-xl font-bold text-gray-900">ShiftServe</span>
-                    </div>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#how-it-works" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium">How It Works</a>
-                        <a href="#features" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium">Features</a>
-                        <a href="#contact" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="gradient-bg text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                    Find Your Perfect<br>
-                    <span class="text-yellow-300">Service Gig</span> Today
-                </h1>
-                <p class="text-xl md:text-2xl mb-8 text-purple-100 max-w-3xl mx-auto">
-                    Connect with local businesses for flexible work opportunities. From hospitality to catering, find temp jobs that fit your schedule.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSciXk_eswVomdRpdp2iNgKtOU4NzuRMSBuSTyMdWWupkO9a5g/viewform?usp=dialog" 
-                       target="_blank" rel="noopener noreferrer"
-                       class="bg-yellow-400 text-purple-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition-colors shadow-lg">
-                        🚀 Join the Beta - Take Survey
-                    </a>
-                    <button onclick="scrollToSection('how-it-works')" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
-                        Learn More
-                    </button>
-                </div>
-                <p class="text-sm text-purple-200 mt-4">✨ Be among the first 1,000 users to shape the platform</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div>
-                    <div class="text-4xl font-bold text-purple-600 mb-2">500+</div>
-                    <div class="text-gray-600">Businesses Ready to Hire</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold text-purple-600 mb-2">24/7</div>
-                    <div class="text-gray-600">Flexible Scheduling</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold text-purple-600 mb-2">$15-35</div>
-                    <div class="text-gray-600">Average Hourly Rate</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="bg-gray-50 py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How ShiftServe Works</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Simple, fast, and designed for the gig economy</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl">📱</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">1. Browse & Apply</h3>
-                    <p class="text-gray-600">Find local service jobs that match your skills and availability. Apply with one tap.</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl">🤝</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">2. Get Matched</h3>
-                    <p class="text-gray-600">Our AI-driven algorithm analyzes your skills, location, availability, and preferences to connect you with the perfect businesses in real-time.</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl">💰</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">3. Work & Earn</h3>
-                    <p class="text-gray-600">Complete your shift and get paid instantly. Our smart AI training system learns from your performance to unlock better opportunities and higher-paying gigs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Highlights -->
-    <section class="bg-purple-50 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">🤖 Powered by Advanced AI</h2>
-                <p class="text-xl text-gray-600">Experience the future of gig work with intelligent automation</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl text-center card-hover">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl">✍️</span>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Auto Job Descriptions</h3>
-                    <p class="text-gray-600">AI generates detailed, accurate job descriptions so you know exactly what to expect before applying.</p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl text-center card-hover">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl">🎯</span>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Intelligent Matching</h3>
-                    <p class="text-gray-600">Advanced algorithms match you with jobs based on skills, location, schedule, and success patterns.</p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl text-center card-hover">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl">🛡️</span>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">AI-Powered Vetting</h3>
-                    <p class="text-gray-600">Smart background checks and verification ensure you work with trusted, legitimate businesses only.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section id="features" class="bg-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose ShiftServe?</h2>
-                <p class="text-xl text-gray-600">Built for modern workers who value flexibility</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-6 rounded-xl card-hover">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                        <span class="text-xl">⚡</span>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Instant Matching</h3>
-                    <p class="text-gray-600">Get matched with jobs in real-time based on your location and skills.</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-xl card-hover">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                        <span class="text-xl">🛡️</span>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Verified Businesses</h3>
-                    <p class="text-gray-600">All employers are background-checked and verified for your safety.</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-xl card-hover">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                        <span class="text-xl">📊</span>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Performance Tracking</h3>
-                    <p class="text-gray-600">Build your profile with ratings and reviews to unlock premium opportunities.</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-xl card-hover cursor-pointer" onclick="togglePaymentFlow()">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                        <span class="text-xl">💳</span>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Instant Payments <span class="text-sm text-purple-600">→ Learn More</span></h3>
-                    <p class="text-gray-600">Get paid immediately after completing your shift. No waiting periods.</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-xl card-hover">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                        <span class="text-xl">📱</span>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Mobile First</h3>
-                    <p class="text-gray-600">Manage everything from your phone - apply, communicate, and get paid.</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-xl card-hover">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                        <span class="text-xl">🎯</span>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Smart Recommendations</h3>
-                    <p class="text-gray-600">AI-powered job suggestions based on your preferences and history.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Job Categories -->
-    <section class="bg-gray-50 py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Popular Job Categories</h2>
-                <p class="text-xl text-gray-600">Find opportunities in industries you love</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-white p-8 rounded-xl text-center card-hover">
-                    <div class="text-5xl mb-4">🍽️</div>
-                    <h3 class="text-xl font-semibold mb-3">Hospitality</h3>
-                    <p class="text-gray-600 mb-4">Work in restaurants, hotels, bars, and cafes. Perfect for those who love customer service and fast-paced environments.</p>
-                    <div class="text-sm text-gray-500">
-                        <span class="inline-block bg-gray-100 px-3 py-1 rounded-full mr-2 mb-2">Servers</span>
-                        <span class="inline-block bg-gray-100 px-3 py-1 rounded-full mr-2 mb-2">Bartenders</span>
-                        <span class="inline-block bg-gray-100 px-3 py-1 rounded-full mr-2 mb-2">Kitchen Staff</span>
-                        <span class="inline-block bg-gray-100 px-3 py-1 rounded-full mr-2 mb-2">Hotel Staff</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-8 rounded-xl text-center card-hover">
-                    <div class="text-5xl mb-4">🎉</div>
-                    <h3 class="text-xl font-semibold mb-3">Events</h3>
-                    <p class="text-gray-600 mb-4">Be part of memorable occasions from weddings to corporate events. Dynamic work with great networking opportunities.</p>
-                    <div class="text-sm text-gray-500">
-                        <span class="inline-block bg-gray-100 px-3 py-1 rounded-full mr-2 mb-2">Event Staff</span>
-                        <span class="inline-block bg-gray-100 px-3 py-1 rounded-full mr-2 mb-2">Catering</span>
-                        <span class="inline-block bg-gray-100 px-3 py-1 rounded-full mr-2 mb-2">Setup Crew</span>
-                        <span class="inline-block bg-gray-100 px-3 py-1 rounded-full mr-2 mb-2">Coordinators</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="gradient-bg text-white py-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Flexible Career?</h2>
-            <p class="text-xl mb-8 text-purple-100">Join thousands of workers who've already discovered the freedom of flexible work</p>
-            
-            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
-                <h3 class="text-2xl font-semibold mb-4">🎁 Early Bird Benefits</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-                    <div class="flex items-center">
-                        <span class="text-yellow-300 mr-3">✓</span>
-                        <span>Zero platform fees for first 6 months</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="text-yellow-300 mr-3">✓</span>
-                        <span>Priority access to premium jobs</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="text-yellow-300 mr-3">✓</span>
-                        <span>Exclusive beta tester badge</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="text-yellow-300 mr-3">✓</span>
-                        <span>Direct line to our support team</span>
-                    </div>
-                </div>
-            </div>
-            
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSciXk_eswVomdRpdp2iNgKtOU4NzuRMSBuSTyMdWWupkO9a5g/viewform?usp=dialog" 
-               target="_blank" rel="noopener noreferrer"
-               class="bg-yellow-400 text-purple-900 px-10 py-5 rounded-lg text-xl font-bold hover:bg-yellow-300 transition-colors shadow-xl inline-block">
-                🚀 Take the Survey & Join Beta
-            </a>
-            <p class="text-sm text-purple-200 mt-4">Takes less than 3 minutes • Help us build the perfect platform for you</p>
-        </div>
-    </section>
-
-    <!-- Payment Flow Modal -->
-    <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div class="p-8">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-3xl font-bold text-gray-900">💳 Secure Payment Flow</h2>
-                    <button onclick="togglePaymentFlow()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-                </div>
-                
-                <div class="mb-8">
-                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                        <div class="flex items-center mb-2">
-                            <span class="text-2xl mr-3">🔒</span>
-                            <h3 class="text-lg font-semibold text-blue-900">Powered by Stripe</h3>
-                        </div>
-                        <p class="text-blue-800">Industry-leading security and compliance for all transactions</p>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                    <!-- Worker Flow -->
-                    <div class="bg-green-50 rounded-xl p-6">
-                        <h3 class="text-xl font-bold text-green-900 mb-4">👷 For Workers</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center mr-3 mt-1">
-                                    <span class="text-sm font-bold text-green-800">1</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-green-900">Quick Onboarding</h4>
-                                    <p class="text-green-700 text-sm">Create your Stripe Connect Express account in minutes during signup</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center mr-3 mt-1">
-                                    <span class="text-sm font-bold text-green-800">2</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-green-900">Work & Complete</h4>
-                                    <p class="text-green-700 text-sm">Finish your shift and mark it as completed in the app</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center mr-3 mt-1">
-                                    <span class="text-sm font-bold text-green-800">3</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-green-900">Instant Payment</h4>
-                                    <p class="text-green-700 text-sm">Receive your earnings immediately to your Connect account</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Business Flow -->
-                    <div class="bg-purple-50 rounded-xl p-6">
-                        <h3 class="text-xl font-bold text-purple-900 mb-4">🏢 For Businesses</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center mr-3 mt-1">
-                                    <span class="text-sm font-bold text-purple-800">1</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-purple-900">Post & Pay</h4>
-                                    <p class="text-purple-700 text-sm">Pay shift amount + platform fee when posting jobs</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center mr-3 mt-1">
-                                    <span class="text-sm font-bold text-purple-800">2</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-purple-900">Funds Secured</h4>
-                                    <p class="text-purple-700 text-sm">Payment is captured and held securely until shift completion</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center mr-3 mt-1">
-                                    <span class="text-sm font-bold text-purple-800">3</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-purple-900">Auto Release</h4>
-                                    <p class="text-purple-700 text-sm">Funds automatically transfer to worker when shift is completed</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Payment Flow Diagram -->
-                <div class="bg-gray-50 rounded-xl p-6 mb-8">
-                    <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">💰 Payment Flow</h3>
-                    <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                                <span class="text-2xl">🏢</span>
-                            </div>
-                            <p class="text-sm font-semibold">Restaurant</p>
-                            <p class="text-xs text-gray-600">Pays $50 + $5 fee</p>
-                        </div>
-                        <div class="text-2xl text-gray-400">→</div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                                <span class="text-2xl">🔒</span>
-                            </div>
-                            <p class="text-sm font-semibold">ShiftServe</p>
-                            <p class="text-xs text-gray-600">Holds $55 securely</p>
-                        </div>
-                        <div class="text-2xl text-gray-400">→</div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                                <span class="text-2xl">👷</span>
-                            </div>
-                            <p class="text-sm font-semibold">Worker</p>
-                            <p class="text-xs text-gray-600">Receives $50</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Dispute Resolution -->
-                <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
-                    <h3 class="text-lg font-bold text-yellow-900 mb-4">⚖️ Dispute Resolution</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <h4 class="font-semibold text-yellow-900 mb-2">If Shift Not Completed:</h4>
-                            <ul class="text-yellow-800 text-sm space-y-1">
-                                <li>• Automatic refund to business</li>
-                                <li>• Worker notified of cancellation</li>
-                                <li>• No fees charged to either party</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-yellow-900 mb-2">Dispute Process:</h4>
-                            <ul class="text-yellow-800 text-sm space-y-1">
-                                <li>• 24/7 support team available</li>
-                                <li>• Fair resolution within 48 hours</li>
-                                <li>• Full transaction transparency</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="font-sans overflow-x-hidden"><!-- Main Hero Section -->
+  <main class="gradient-bg hero-pattern min-h-screen flex items-center justify-center relative"><!-- Floating Elements -->
+   <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="floating absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full"></div>
+    <div class="floating absolute top-40 right-20 w-16 h-16 bg-gamboge/20 rounded-full" style="animation-delay: -2s;"></div>
+    <div class="floating absolute bottom-40 left-20 w-24 h-24 bg-viridian-green/20 rounded-full" style="animation-delay: -4s;"></div>
+    <div class="floating absolute bottom-20 right-10 w-12 h-12 bg-vanilla/30 rounded-full" style="animation-delay: -1s;"></div>
+   </div>
+   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"><!-- Logo/Brand -->
+    <div class="slide-in mb-8">
+     <div class="text-6xl md:text-8xl font-black text-white text-shadow mb-4">
+      ShiftServe
+     </div>
+     <div class="text-xl md:text-2xl text-vanilla font-semibold">
+      The Future of Flexible Work
+     </div>
+    </div><!-- Main Headline -->
+    <div class="slide-in mb-12" style="animation-delay: 0.2s;">
+     <h1 class="text-4xl md:text-6xl font-bold text-white text-shadow mb-6 leading-tight">Immediate staffing<br><span class="bg-gradient-to-r from-vanilla to-gamboge bg-clip-text text-transparent"> Immediate Work </span></h1>
+    </div><!-- Main CTA -->
+    <div class="slide-in mb-12" style="animation-delay: 0.4s;">
+     <div class="glass-effect rounded-3xl p-8 max-w-lg mx-auto">
+      <div class="mb-6">
+       <h2 class="text-2xl font-bold text-white mb-2">Beat the Rush</h2>
+       <p class="text-middle-blue-green">Be among the first to experience the future of staffing</p>
+      </div>
+      <form id="signup-form" class="space-y-4">
+       <div><input type="email" id="email" name="email" required class="w-full px-6 py-4 rounded-xl text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-gamboge/50 text-lg" placeholder="Enter your email address">
+       </div><button type="submit" class="glow-button w-full bg-gradient-to-r from-gamboge to-rust text-white py-4 px-8 rounded-xl text-xl font-bold hover:scale-105 transition-all duration-300 shadow-2xl"> 🚀 Join the Waitlist </button>
+      </form>
+      <div class="mt-6 text-center">
+       <p class="text-lg text-middle-blue-green mb-4 leading-relaxed">AI-powered platform connecting hospitality businesses with qualified workers for instant shift coverage</p>
+       <div class="text-sm text-middle-blue-green mb-2">
+        ✓ 100% Free • ✓ No Credit Card • ✓ Instant Access
+       </div>
+       <div class="flex items-center justify-center space-x-2">
+        <div class="flex -space-x-2">
+         <div class="w-8 h-8 rounded-full bg-gradient-to-r from-gamboge to-rufous border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+          A
+         </div>
+         <div class="w-8 h-8 rounded-full bg-gradient-to-r from-viridian-green to-middle-blue-green border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+          M
+         </div>
+         <div class="w-8 h-8 rounded-full bg-gradient-to-r from-vanilla to-gamboge border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+          S
+         </div>
+         <div class="w-8 h-8 rounded-full bg-gradient-to-r from-rufous to-auburn border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+          +
+         </div>
+        </div><span class="text-white text-sm font-medium">2,847 joined this week</span>
+       </div>
+      </div>
+     </div>
+    </div><!-- Key Benefits -->
+    <div class="slide-in grid md:grid-cols-3 gap-6 max-w-4xl mx-auto" style="animation-delay: 0.6s;">
+     <div class="glass-effect rounded-xl p-6 text-center">
+      <div class="w-16 h-16 bg-gamboge/20 rounded-full flex items-center justify-center mx-auto mb-4">
+       <svg class="w-8 h-8 text-gamboge" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+       </svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-2">Instant Matching</h3>
+      <p class="text-middle-blue-green text-sm">AI finds perfect shifts in under 30 seconds</p>
+     </div>
+     <div class="glass-effect rounded-xl p-6 text-center">
+      <div class="w-16 h-16 bg-vanilla/20 rounded-full flex items-center justify-center mx-auto mb-4">
+       <svg class="w-8 h-8 text-vanilla" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+       </svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-2">Instant Pay</h3>
+      <p class="text-middle-blue-green text-sm">Get paid immediately when shift ends</p>
+     </div>
+     <div class="glass-effect rounded-xl p-6 text-center">
+      <div class="w-16 h-16 bg-rust/20 rounded-full flex items-center justify-center mx-auto mb-4">
+       <svg class="w-8 h-8 text-rust" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+       </svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-2">Premium Shifts</h3>
+      <p class="text-middle-blue-green text-sm">Top workers earn up to $45/hour</p>
+     </div>
     </div>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-gray-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center mb-4">
-                        <div class="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">S</span>
-                        </div>
-                        <span class="ml-2 text-xl font-bold">ShiftServe</span>
-                    </div>
-                    <p class="text-gray-400 mb-6 max-w-md">Connecting talented workers with flexible opportunities in the service industry. Work when you want, where you want.</p>
-                    <div class="mb-6">
-                        <a href="https://www.producthunt.com/products/shiftbnb?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-shiftbnb" target="_blank" rel="noopener noreferrer">
-                            <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1019436&theme=dark&t=." alt="ShiftServe - On demand restaurant shifts: tap → claim → work → get paid | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" onerror="this.src=''; this.alt='Product Hunt badge failed to load'; this.style.display='none';" />
-                        </a>
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="mailto:hello@shiftserve.ai" class="text-gray-400 hover:text-white transition-colors">📧 hello@shiftserve.ai</a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">For Workers</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfO5EieYc_RSa8m4F5RqvXXbSMvj-koBcC70fV30RXdvAJU-w/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Find Jobs</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">How It Works</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Success Stories</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">For Businesses</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdB30HqC7p8RZZTMcxL4BSC8U-fXOLjqJ5tkacDsMrdE3WULg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Post Jobs</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Enterprise</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact Sales</a></li>
-                    </ul>
-                </div>
-            </div>
+   </div>
+  </main><!-- Success Modal -->
+  <div id="success-modal" class="fixed inset-0 bg-rich-black/80 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+   <div class="glass-effect rounded-3xl p-8 max-w-md mx-4 text-center text-white">
+    <div class="w-20 h-20 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+     <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+     </svg>
+    </div>
+    <h3 class="text-3xl font-bold mb-4">🎉 Welcome Aboard!</h3>
+    <p class="text-lg mb-6">You're position <strong class="text-orange" id="user-position">#8,432</strong> on the waitlist.</p>
+    <div class="glass-effect rounded-xl p-4 mb-6">
+     <div class="text-sm font-semibold mb-2">
+      🚀 Skip the Line!
+     </div>
+     <div class="text-xs mb-3">
+      Share your link to move up faster:
+     </div>
+     <div class="bg-white/20 rounded-lg p-3 flex items-center justify-between"><input type="text" id="referral-link" value="shiftserve.ai" readonly class="text-sm bg-transparent flex-1 outline-none text-white"> <button id="copy-link" class="bg-orange text-white px-3 py-1 rounded text-xs font-semibold hover:bg-orange-dark transition-colors ml-2">Copy</button>
+     </div>
+    </div><button id="close-modal" class="bg-gradient-to-r from-orange to-red-orange text-white px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-all"> Get Started </button>
+   </div>
+  </div><!-- Footer -->
+  <footer class="bg-rich-black text-white py-12">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-8">
+     <div>
+      <div class="text-2xl font-bold bg-gradient-to-r from-orange to-red-orange bg-clip-text text-transparent mb-4">
+       ShiftServe
+      </div>
+      <p class="text-gray-400">The future of flexible work is here. Join the revolution.</p>
+     </div>
+     <div>
+      <h4 class="font-semibold mb-4">For Workers</h4>
+      <ul class="space-y-2 text-gray-400">
+       <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfO5EieYc_RSa8m4F5RqvXXbSMvj-koBcC70fV30RXdvAJU-w/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Find Shifts</a></li>
+       <li><a href="#" class="hover:text-white transition-colors">How It Works</a></li>
+       <li><a href="#" class="hover:text-white transition-colors">Instant Pay</a></li>
+       <li><a href="#" class="hover:text-white transition-colors">Success Stories</a></li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="font-semibold mb-4">For Businesses</h4>
+      <ul class="space-y-2 text-gray-400">
+       <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdB30HqC7p8RZZTMcxL4BSC8U-fXOLjqJ5tkacDsMrdE3WULg/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Post Shifts</a></li>
+       <li><a href="#" class="hover:text-white transition-colors">Find Workers</a></li>
+       <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+       <li><a href="#" class="hover:text-white transition-colors">Enterprise</a></li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="font-semibold mb-4">Connect</h4>
+      <div class="flex space-x-4 mb-6"><a href="https://www.linkedin.com/company/shiftserve/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg></a> <a href="https://x.com/ri_shiftserve" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg></a> <a href="https://www.facebook.com/profile.php?id=61566945928094" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+        </svg></a> <a href="https://www.instagram.com/shiftserve/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg></a> <a href="https://www.tiktok.com/@shiftserve" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+        </svg></a>
+      </div>
+      <div class="text-sm text-gray-400">
+       <p>📧 hello@shiftserve.ai</p>
+       <p>📱 (401) 529-5266</p>
+      </div>
+     </div>
+    </div>
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+     <p>© 2024 ShiftServe. All rights reserved. • Privacy Policy • Terms of Service</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Signup form submission
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 ShiftServe. All rights reserved. • Privacy Policy • Terms of Service</p>
-            </div>
-        </div>
-    </footer>
+            const email = document.getElementById('email').value;
+            if (!email) return;
+            
+            // Add loading state
+            const button = this.querySelector('button');
+            const originalText = button.textContent;
+            button.textContent = '🚀 Joining...';
+            button.disabled = true;
+            
+            // Simulate signup process
+            setTimeout(() => {
+                // Generate random position
+                const position = Math.floor(Math.random() * 5000) + 3000;
+                document.getElementById('user-position').textContent = '#' + position.toLocaleString();
+                
+                // Set the shiftserve.ai link
+                document.getElementById('referral-link').value = 'shiftserve.ai';
+                
+                // Show success modal
+                document.getElementById('success-modal').classList.remove('hidden');
+                
+                // Reset button
+                button.textContent = originalText;
+                button.disabled = false;
+                
+                // Clear form
+                this.reset();
+                
+            }, 2000);
+        });
 
-    <script>
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
+        // Modal functionality
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('success-modal').classList.add('hidden');
+        });
+
+        // Copy referral link
+        document.getElementById('copy-link').addEventListener('click', function() {
+            const referralLink = document.getElementById('referral-link');
+            referralLink.select();
+            document.execCommand('copy');
+            
+            this.textContent = 'Copied!';
+            this.classList.add('bg-green-500');
+            this.classList.remove('bg-orange');
+            
+            setTimeout(() => {
+                this.textContent = 'Copy';
+                this.classList.remove('bg-green-500');
+                this.classList.add('bg-orange');
+            }, 2000);
+        });
+
+        // Add click animations to buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
             });
-        }
-
-        function togglePaymentFlow() {
-            const modal = document.getElementById('paymentModal');
-            modal.classList.toggle('hidden');
-            if (!modal.classList.contains('hidden')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        }
+        });
 
         // Close modal when clicking outside
-        document.getElementById('paymentModal').addEventListener('click', function(e) {
+        document.getElementById('success-modal').addEventListener('click', function(e) {
             if (e.target === this) {
-                togglePaymentFlow();
+                this.classList.add('hidden');
             }
         });
-
-        // Add smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add scroll animation for cards
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards for animation
-        document.querySelectorAll('.card-hover').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98c9411c96e19017',t:'MTc2MDEzMjE5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99655ac7145c424d',t:'MTc2MTc2OTAyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
-
-
-
